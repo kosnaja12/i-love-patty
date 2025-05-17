@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles.css">
+</head> 
+<body>
+    <div class="container">
+        <h1 class="header_text">Do you love me patyy ?</h1>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html"; // Redirects to yes.html
+        }
+    
+        function moveButton() {
+            var button = document.getElementById('noButton');
+    
+            // Get current button position
+            var rect = button.getBoundingClientRect();
+            var offsetX = Math.random() * 200 - 100; // Move between -100px to +100px
+            var offsetY = Math.random() * 200 - 100; // Move between -100px to +100px
+    
+            var newX = rect.left + offsetX;
+            var newY = rect.top + offsetY;
+    
+            // Ensure the button stays within the screen
+            newX = Math.max(0, Math.min(window.innerWidth - button.clientWidth, newX));
+            newY = Math.max(0, Math.min(window.innerHeight - button.clientHeight, newY));
+    
+            button.style.position = "absolute"; 
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+    </script>
+    
+    
+    
+    
+</body> 
+</html>
